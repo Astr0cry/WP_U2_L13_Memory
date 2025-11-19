@@ -1,0 +1,54 @@
+*{
+    font-family: Sigmar;
+}
+
+
+header{
+    margin: 2vw 0;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    background-color: #9d9167;
+    width: 75vw ;
+    height: 12.5vh;
+    text-align: center;
+    border-radius: 2vw;
+    border: solid 1vh #84592a;
+    box-shadow: 1vh 1vh #dabc98;
+}
+
+main, body{
+    background-color: #e8d1a7;
+}
+
+h1{
+    color: #84592a;
+    -webkit-text-stroke: 0.05vh #743014;
+    text-decoration: underline;
+}
+
+h1,h2{
+    font-family: Joti One;
+    font-size: 350%;
+    margin: 0;
+}
+
+a{
+    color: #84592a;
+    text-decoration: none;
+    -webkit-text-stroke: 0.2vh #743014;
+}
+
+a:hover{
+    color: #743014;
+    -webkit-text-stroke: 0.2vh #433021;
+}
+
+main, body, a{
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}

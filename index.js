@@ -9,7 +9,7 @@ function genCards(){
         }
     }
     
-    console.log(images);
+    
     // Adding Rows
     for(let r=0; r<4; r++){
         const row = document.createElement("div");

@@ -11,6 +11,11 @@
 
 img{
     size: 50%;
+    visibility: hidden;
+}
+
+.flipped{
+    visibility: visible;
 }
 
 

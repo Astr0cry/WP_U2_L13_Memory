@@ -5,7 +5,7 @@ function genCards(){
     //Get Images
     for(let p =0;p<2;p++){
         for(let i=0; i<10;i++){
-        images.splice(0,0,`url(resources/common/food${i+1}.png)`);
+        images.splice(0,0,`resources/common/food${i+1}.png`);
         }
     }
     
@@ -20,9 +20,10 @@ function genCards(){
             const card = document.createElement("div");
             card.className = "card";
             let randIndex = Math.floor(Math.random() * images.length);
-            card.style.backgroundImage = images[randIndex];
+            const cardImage = document.createElement("img");
+            cardImage.src=images[randIndex];
+            card.appendChild(cardImage);
             images.splice(randIndex,1);
-            console.log(images);
             row.appendChild(card);
         }
         body.appendChild(row);

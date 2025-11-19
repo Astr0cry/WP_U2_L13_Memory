@@ -1,6 +1,6 @@
 
 function genCards(){
-    const body = document.getElementsByTagName("body")[0];
+    const main = document.getElementsByTagName("main")[0];
     let images =[];
     //Get Images
     for(let p =0;p<2;p++){
@@ -19,6 +19,7 @@ function genCards(){
         for(let c=0;c<5;c++){
             const card = document.createElement("div");
             card.className = "card";
+            card.onclick = function(card){flipCard};
             let randIndex = Math.floor(Math.random() * images.length);
             const cardImage = document.createElement("img");
             cardImage.src=images[randIndex];
@@ -26,6 +27,6 @@ function genCards(){
             images.splice(randIndex,1);
             row.appendChild(card);
         }
-        body.appendChild(row);
+        main.appendChild(row);
     }
 }

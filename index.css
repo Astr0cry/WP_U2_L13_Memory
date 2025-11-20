@@ -7,15 +7,20 @@
     height: 10vw;
     margin: 1vh;
     box-shadow: 1vh 1vh #dabc98;
+
+    img{
+        visibility: hidden;
+    }
 }
 
 img{
     size: 50%;
-    visibility: hidden;
 }
 
 .flipped{
-    visibility: visible;
+    img{
+        visibility: visible;
+    }
 }
 
 

@@ -1,3 +1,8 @@
+// Stores Currently Flipped Cards
+flippedCards = [];
+
+// Player turn variable. 0 = Player 1, 1 = Player 2
+playerTurn = Math.round(Math.random());
 
 function genCards(){
     const main = document.getElementsByTagName("main")[0];
@@ -19,14 +24,22 @@ function genCards(){
         for(let c=0;c<5;c++){
             const card = document.createElement("div");
             card.className = "card";
-            card.onclick = function(card){flipCard};
             let randIndex = Math.floor(Math.random() * images.length);
             const cardImage = document.createElement("img");
             cardImage.src=images[randIndex];
             card.appendChild(cardImage);
+            card.onclick = function(){flipCard(card,cardImage)};
             images.splice(randIndex,1);
             row.appendChild(card);
         }
         main.appendChild(row);
+    }
+}
+
+function flipCard(card,cardImage){
+    flippedCards.splice(-1,0,card);
+    card.classList.add("flipped");
+    if(flippedCards.length == 2){
+        flippedCards.splice(0,flippedCards.length);
     }
 }

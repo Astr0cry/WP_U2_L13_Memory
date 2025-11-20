@@ -1,0 +1,31 @@
+section{
+    background-color: #9d9167;
+    border-radius: 2vw;
+    border: solid 1vh #84592a;
+    box-shadow: 1vh 1vh #dabc98;
+    margin-top: 5vw;
+}
+
+p, h2{
+    color: #84592a;
+}
+
+h2{
+    -webkit-text-stroke: 0.05vh #743014;
+}
+
+p{
+    -webkit-text-stroke: 0.2vh #743014;
+    font-size: 200%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img{
+    size: 75%;
+}
+

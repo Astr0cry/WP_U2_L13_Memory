@@ -4,7 +4,15 @@ flippedCards = [];
 // Player turn variable. 0 = Player 1, 1 = Player 2
 playerTurn = Math.round(Math.random());
 
+playerScores = {
+    0:0,
+    1:0
+}
+// Heading that displays current player turn
+const turnHeading = document.getElementById("turn");
+
 function genCards(){
+    turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
     const main = document.getElementsByTagName("main")[0];
     let images =[];
     //Get Images
@@ -37,9 +45,24 @@ function genCards(){
 }
 
 function flipCard(card,cardImage){
-    flippedCards.splice(-1,0,card);
-    card.classList.add("flipped");
-    if(flippedCards.length == 2){
-        flippedCards.splice(0,flippedCards.length);
+    
+    if (!card.className.includes("flipped")){
+
+        flippedCards.splice(-1,0,card);
+        card.classList.add("flipped");
+
+        if(flippedCards.length == 2){
+            if(flippedCards[0].children[0].src==flippedCards[1].children[0].src){
+                playerScores[Number(playerTurn)]++;
+            }
+            else{
+                for(flippedCard of flippedCards){
+                    flippedCard.classList.remove("flipped");
+                }
+            }
+            playerTurn = !playerTurn;
+            turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
+            flippedCards.splice(0,flippedCards.length);
+        }
     }
 }

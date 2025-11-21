@@ -11,6 +11,9 @@ playerScores = {
 // Heading that displays current player turn
 const turnHeading = document.getElementById("turn");
 
+// prevents on click events
+unclickable = false;
+
 function genCards(){
     turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
     const main = document.getElementsByTagName("main")[0];
@@ -36,7 +39,7 @@ function genCards(){
             const cardImage = document.createElement("img");
             cardImage.src=images[randIndex];
             card.appendChild(cardImage);
-            card.onclick = function(){flipCard(card,cardImage)};
+            card.onclick = function(){flipCard(card)};
             images.splice(randIndex,1);
             row.appendChild(card);
         }
@@ -44,25 +47,45 @@ function genCards(){
     }
 }
 
-function flipCard(card,cardImage){
-    
-    if (!card.className.includes("flipped")){
+function flipCard(card){
+    if(!unclickable){
+        function flipBack(){
+            for(let flippedCard of flippedCards){
+            flippedCard.classList.remove("flipped");
 
-        flippedCards.splice(-1,0,card);
-        card.classList.add("flipped");
-
-        if(flippedCards.length == 2){
-            if(flippedCards[0].children[0].src==flippedCards[1].children[0].src){
-                playerScores[Number(playerTurn)]++;
+            unclickable = false;
             }
-            else{
-                for(flippedCard of flippedCards){
-                    flippedCard.classList.remove("flipped");
+        }
+
+        // Prevents Same Card from being selected
+        if (!card.className.includes("flipped")){
+
+            // Make Image visible and add it to flipped cards List
+            flippedCards.splice(-1,0,card);
+            card.classList.add("flipped");
+
+            if(flippedCards.length == 2){
+                if(flippedCards[0].children[0].src==flippedCards[1].children[0].src){
+                    const scorebox = document.getElementById(`player${playerTurn+1}`);
+                    const currentScore = scorebox.children[0];
+                    currentScore.textContent = Number(currentScore.textContent)+1;
+                    playerScores[Number(playerTurn)]++;
                 }
+                else{
+                    unclickable = true;
+                    setTimeout(flipBack,1000);
+                }
+                if(unclickable){
+                    setTimeout(function(){
+                    flippedCards = [];
+                },1000);
+                }
+                else{
+                    flippedCards=[];
+                }
+                playerTurn = !playerTurn;
+                turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
             }
-            playerTurn = !playerTurn;
-            turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
-            flippedCards.splice(0,flippedCards.length);
         }
     }
-}
+}   

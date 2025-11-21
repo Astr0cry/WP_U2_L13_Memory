@@ -55,12 +55,10 @@ function genCards(){
 
 function setScores(){
     const scoreboxes = document.getElementsByClassName("scorebox");
-    console.log(scoreboxes);
     for(let b=0;b<2;b++){
         const scorebox = scoreboxes[b];
         const totalScore = scorebox.children[1];
         const playerScore = sessionStorage.getItem("score").split(":")[b];
-        console.log(totalScore);
         totalScore.textContent = playerScore;
     }
 }
@@ -137,7 +135,6 @@ function flipCard(card){
                     else{
                         turnHeading.textContent="Draw!";
                     }
-                    console.log(sessionStorage.getItem("score"));
                 }
             }
         }

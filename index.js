@@ -54,7 +54,15 @@ function genCards(){
 }
 
 function setScores(){
-    
+    const scoreboxes = document.getElementsByClassName("scorebox");
+    console.log(scoreboxes);
+    for(let b=0;b<2;b++){
+        const scorebox = scoreboxes[b];
+        const totalScore = scorebox.children[1];
+        const playerScore = sessionStorage.getItem("score").split(":")[b];
+        console.log(totalScore);
+        totalScore.textContent = playerScore;
+    }
 }
 function flipCard(card){
     if(!unclickable){
@@ -123,6 +131,8 @@ function flipCard(card){
                         newScore[winner] = Number(newScore[winner])+1;
                         newScore=newScore.join(":");
                         sessionStorage.setItem("score",newScore);
+                        const scoreTag =document.getElementsByClassName("scorebox")[winner].children[1];
+                        scoreTag.textContent= Number(scoreTag.textContent)+1;
                     }
                     else{
                         turnHeading.textContent="Draw!";

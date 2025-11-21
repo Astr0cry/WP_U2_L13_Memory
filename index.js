@@ -58,7 +58,7 @@ function flipCard(card){
         function flipBack(){
             for(let flippedCard of flippedCards){
             flippedCard.classList.remove("flipped");
-
+            
             unclickable = false;
             }
         }

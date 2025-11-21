@@ -1,3 +1,9 @@
+if(sessionStorage.getItem("score")==null){
+    sessionStorage.setItem("score","0:0");
+}
+
+
+
 // Stores Currently Flipped Cards
 flippedCards = [];
 
@@ -65,10 +71,12 @@ function flipCard(card){
             card.classList.add("flipped");
 
             if(flippedCards.length == 2){
+                let scored = false;
                 if(flippedCards[0].children[0].src==flippedCards[1].children[0].src){
                     const scorebox = document.getElementById(`player${playerTurn+1}`);
                     const currentScore = scorebox.children[0];
                     currentScore.textContent = Number(currentScore.textContent)+1;
+                    scored = true;
                     playerScores[Number(playerTurn)]++;
                 }
                 else{
@@ -83,8 +91,39 @@ function flipCard(card){
                 else{
                     flippedCards=[];
                 }
-                playerTurn = !playerTurn;
-                turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
+
+                if(!scored){
+                    playerTurn = !playerTurn;
+                    turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
+                }
+                
+                if(document.getElementsByClassName("flipped").length==20){
+                    let winner = null
+                    console.log(playerScores[0]);
+                    console.log(playerScores[1]);
+                    if(playerScores[0]>playerScores[1]){
+                        winner = 0;
+                    }
+                    else if(playerScores[0]<playerScores[1]){
+                        winner = 1;
+                    }
+                    else{
+                        winner = "draw";
+                    }
+
+                    if(winner!="draw"){
+                        turnHeading.textContent=`Player ${winner+1} Wins!`
+                        let newScore = sessionStorage.getItem("score");
+                        newScore = newScore.split(":");
+                        newScore[winner] = Number(newScore[winner])+1;
+                        newScore=newScore.join(":");
+                        sessionStorage.setItem("score",newScore);
+                    }
+                    else{
+                        turnHeading.textContent="Draw!";
+                    }
+                    console.log(sessionStorage.getItem("score"));
+                }
             }
         }
     }

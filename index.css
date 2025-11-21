@@ -51,7 +51,7 @@ img{
 
 #scoreSect{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 2vh 40vw;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2vh 0;
 }

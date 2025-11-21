@@ -1,7 +1,8 @@
 main{
     background-color: #9d9167;
     border-radius: 2vw;
-    border: solid 1vh #84592a;
+    border: solid 1vh;
+    border-color: #84592a #763d1d #763d1d #84592a;
     box-shadow: 1vh 1vh #dabc98;
 }
 

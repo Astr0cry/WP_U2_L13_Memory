@@ -34,24 +34,38 @@ img{
 }
 
 
-.scorebox{
+.scorebox, #buttonDiv{
     border: solid 1vh;
     background-color: #9a9167;
     border-color: #84592a #763d1d #763d1d #84592a;
     border-radius: 2vw;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 5vw;
-    height: 5vw;
+    flex-direction: column;
     font-size: 125%;
     color: #84592a;
     -webkit-text-stroke: 0.2vh #743014;
 }
 
-#scoreSect{
+#scoreSect, #resetSect{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 2vh 40vw;
+}
+
+p{
+    margin: 0;
+}
+
+#buttonDiv{
     justify-content: center;
-    margin: 2vh 0;
+    width: 15vw;
+    height: 3vw;
+}
+
+.scorebox{
+    justify-content: space-between;
+    width: 5vw;
+    height: 5vw;
 }

@@ -1,6 +1,7 @@
 .card{
     display: flex;
     justify-content: center;
+    border: solid 1vh;
     border-color: #9a9167 #8a7652 #8a7652 #9a9167;
     border-radius: 2vw;
     width: 10vw;
@@ -21,6 +22,8 @@ img{
     img{
         visibility: visible;
     }
+    background-color: #84592a;
+    border-color: #732e12 #621f0b #621f0b #732e12;
 }
 
 
@@ -30,24 +33,25 @@ img{
     flex-direction: row;
 }
 
-.flipped, .scorebox{
-    background-color: #84592a;
-    border-color: #732e12 #621f0b #621f0b #732e12;
-}
-
-.card, .scorebox{
-    border: solid 1vh;
-}
 
 .scorebox{
+    border: solid 1vh;
+    background-color: #9a9167;
+    border-color: #84592a #763d1d #763d1d #84592a;
+    border-radius: 2vw;
     display: flex;
-    justify-content: space-evenly;
-    width: 10vw;
-    height: 10vw;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 5vw;
+    font-size: 125%;
+    color: #84592a;
+    -webkit-text-stroke: 0.2vh #743014;
 }
 
 #scoreSect{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin: 2vh 40vw;
 }

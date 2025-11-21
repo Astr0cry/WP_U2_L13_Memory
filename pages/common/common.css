@@ -13,7 +13,8 @@ header{
     width: 75vw ;
     height: 12.5vh;
     border-radius: 2vw;
-    border: solid 1vh #84592a;
+    border: solid 1vh;
+    border-color: #84592a #763d1d #763d1d #84592a;
     box-shadow: 1vh 1vh #dabc98;
 }
 
@@ -28,7 +29,7 @@ h1{
 }
 
 h1,h2{
-    font-family: Joti One;
+    font-family: Rye;
     font-size: 350%;
     margin: 0;
 }

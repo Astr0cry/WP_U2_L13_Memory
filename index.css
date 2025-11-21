@@ -1,7 +1,7 @@
 .card{
     display: flex;
     justify-content: center;
-    border: solid 1vh #9d9167;
+    border-color: #9a9167 #8a7652 #8a7652 #9a9167;
     border-radius: 2vw;
     width: 10vw;
     height: 10vw;
@@ -28,4 +28,26 @@ img{
     display: flex;
     justify-content: center;
     flex-direction: row;
+}
+
+.flipped, .scorebox{
+    background-color: #84592a;
+    border-color: #732e12 #621f0b #621f0b #732e12;
+}
+
+.card, .scorebox{
+    border: solid 1vh;
+}
+
+.scorebox{
+    display: flex;
+    justify-content: space-evenly;
+    width: 10vw;
+    height: 10vw;
+}
+
+#scoreSect{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

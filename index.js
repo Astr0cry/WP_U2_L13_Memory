@@ -53,12 +53,15 @@ function genCards(){
     }
 }
 
+function setScores(){
+    
+}
 function flipCard(card){
     if(!unclickable){
         function flipBack(){
             for(let flippedCard of flippedCards){
             flippedCard.classList.remove("flipped");
-            
+
             unclickable = false;
             }
         }
@@ -97,10 +100,11 @@ function flipCard(card){
                     turnHeading.textContent = `Player ${playerTurn+1}'s Turn`;
                 }
                 
+                //Checks if all pairs have been found
                 if(document.getElementsByClassName("flipped").length==20){
                     let winner = null
-                    console.log(playerScores[0]);
-                    console.log(playerScores[1]);
+                   
+                    //Win Check
                     if(playerScores[0]>playerScores[1]){
                         winner = 0;
                     }
@@ -111,6 +115,7 @@ function flipCard(card){
                         winner = "draw";
                     }
 
+                    //Updates score and heading based on winner
                     if(winner!="draw"){
                         turnHeading.textContent=`Player ${winner+1} Wins!`
                         let newScore = sessionStorage.getItem("score");
